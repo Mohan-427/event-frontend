@@ -3,7 +3,7 @@ import axios from 'axios';
 // Read API URL from environment (supports Vite VITE_API_URL and CRA REACT_APP_API_BASE_URL)
 const API_BASE_URL =
   (typeof process !== 'undefined' && (process.env.REACT_APP_API_BASE_URL || process.env.VITE_API_URL)) ||
-  'http://localhost:8080';
+  (process.env.NODE_ENV === 'production' ? 'https://event-backend-1-obv5.onrender.com' : 'http://localhost:8080');
 
 const api = axios.create({
   baseURL: API_BASE_URL,
